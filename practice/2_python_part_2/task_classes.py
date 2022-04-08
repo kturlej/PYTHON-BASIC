@@ -25,6 +25,11 @@ Methods:
     Note that this method doesn't need object itself
 PEP8 comply strictly.
 """
+"""
+TODO:
+prepare multi homework possiblity
+"""
+
 import datetime
 
 
