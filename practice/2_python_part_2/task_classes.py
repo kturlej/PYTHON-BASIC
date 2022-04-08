@@ -29,15 +29,48 @@ import datetime
 
 
 class Teacher:
-    ...
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.hw_text = 'zrob zadanie 1'
+        self.deadline = 20
+
+    def create_homework(self):
+        homework1 = Homework(self.hw_text, self.deadline)
+        return homework1
 
 
 class Student:
-    ...
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def do_homework(self, homework):
+        homework.set_state('done')
+        print('Zrobilem zadanie!')
+
 
 
 class Homework:
-    ...
+    def __init__(self, text, deadline):
+        self.text = text
+        self.deadline = deadline # 20
+        self.created = 10
+        self.state = 'created'
+
+    def is_active(self):
+        current_date = 15
+        if current_date > self.deadline:
+            self.state = 'not active'
+            return self.state
+        self.state = 'active'
+        return self.state
+
+# TODO: remove it
+homework1 = teacher.create_homework()
+print(homework1.state)
+student.do_homework(homework1)
+print(homework1.state)
 
 
 if __name__ == '__main__':
